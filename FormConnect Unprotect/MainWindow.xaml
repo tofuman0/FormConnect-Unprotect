@@ -1,0 +1,41 @@
+﻿<Window x:Class="FormConnect_Unprotect.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FormConnect_Unprotect"
+        mc:Ignorable="d"
+        Title="FormConnect Unprotect"
+        Height="253"
+        Width="386"
+        Icon="Icon.ico"
+        ResizeMode="NoResize"
+        DragDrop.Drop="Window_Drop"
+        AllowDrop="true">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="48"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Column="0" Grid.Row="0">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem Name="MiOpen" Header="_Open" Click="Open_Click"/>
+                    <MenuItem Name="MiSave" Header="_Save" Click="Save_Click" IsEnabled="false"/>
+                    <Separator/>
+                    <MenuItem Name="MiExit" Header="_Exit" Click="Exit_Click"/>
+                </MenuItem>
+                <MenuItem Header="Help">
+                    <MenuItem Name="MiAbout" Header="About" Click="About_Click"/>
+                </MenuItem>
+            </Menu>
+            <Label DockPanel.Dock="Bottom" Name="LblStatus" VerticalContentAlignment="Bottom" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" FontSize="9pt" FontFamily="Courier New">
+                <TextBlock Name="TbStatus" TextWrapping="WrapWithOverflow">Form Not Loaded...</TextBlock>
+            </Label>
+        </DockPanel>
+        <Button Grid.Column="0" Grid.Row="1" IsEnabled="false" Click="Unprotect_Click" x:Name="BtnUnprotect" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch">Unprotect</Button>
+    </Grid>
+</Window>
